@@ -1,43 +1,23 @@
 var express = require("express");
+var app = express();
+var Sequelize = require("sequelize");
+var path = require('path');
 var bodyParser = require("body-parser");
 var cors = require("cors");
+var models  = require('./models');
 
-var app = express();
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use(express.static(path.resolve(__dirname, 'demo')));
 var Sequelize = require("sequelize");
-
+/*
 // init sequelize connexion
 var sequelize = new Sequelize('database', 'username', 'password', {
    dialect: 'mysql',
    host: '127.0.0.1',
    port: 3306
 });
-/*
-// define entity
-var Cars = sequelize.define('Cars', {
-  Name: {
-    type: Sequelize.STRING,
-    field: 'Name'
-  },
-  Engine: {
-    type: Sequelize.STRING,
-    field: 'Engine'
-  },
-  Gearbox: {
-    type: Sequelize.STRING,
-    field: 'Gearbox'
-  },
-  Startingprice: {
-    type: Sequelize.INT,
-    field: 'Starting price'
-  },
- 
-}, {
-  timestamps: false
-});
-*/
+
 // create an Cars
 app.post('/Cars', function(request,response) {
   Cars.create(request.body).then(function(Cars) {
@@ -48,16 +28,45 @@ app.post('/Cars', function(request,response) {
 });
 
 
+var data = [{id:1},{id:2},{id:3}];
+
+//CREATE new resource
+app.post('/masini', function(request, response) {
+response.status(201).send(request.body);
+});
+
+//READ all 
+app.get('/masini', function(request, response) {
+response.status(200).send(data);
+});
+
+//READ one by id
+app.get('/masini/:id', function(request, response) {
+response.status(200).send(data[0]);
+});
+
+//UPDATE one by id
+app.put('/masini/:id', function(request, response) {
+response.status(201).send(request.body);
+});
+
+//DELETE one by id
+app.delete('/masini/:id', function(request, response) {
+response.status(201).send('Deleted' + request.params.id);
+});
+
+
+
 //READ all
 app.get('/Cars', function(request,response){
-     /*global Cars*/
+   
     Cars.findAll().then(function(Cars){
         response.status(200).send(Cars);
     });
 });
 
 //READ one
-/*app.get('/articles/:id', function(request,response){
+app.get('/articles/:id', function(request,response){
     Article.findById(request.params.id).then(function(article){
         if(article) {
             response.status(200).send(article);
@@ -99,8 +108,5 @@ var nodeadmin = require('nodeadmin');
 app.use(nodeadmin(app));
 
 // REST methods
-app.get('/Cars', function(req,res){
-    res.status(200).send([]);
-});
-
+app.use(require("./routes/modele.js"));
 app.listen(process.env.PORT);

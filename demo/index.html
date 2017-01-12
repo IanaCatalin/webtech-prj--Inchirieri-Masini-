@@ -1,98 +1,52 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html">
-  <title>The World of Audi</title>
-  <meta name="author" content="Iana Catalin">
-  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
-  <link rel="icon" href="http://designshack.net/favicon.ico">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
-  <link rel="stylesheet" href="//bootswatch.com/cosmo/bootstrap.min.css">
-    <link rel="stylesheet" href="//bootswatch.com/cosmo/bootstrap-theme.min.css">
+
+    <!-- Meta-Information -->
+    <title>The World of Audi</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="The World of Audi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    
+
 </head>
+<body ng-app="tutorialWebApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-<body>
+<!-- Our Website Content Goes Here -->
+<div ng-include='"templates/header.html"'></div>
+<div ng-view></div>
+<div ng-include='"templates/footer.html"'></div>
 
-  
-  <div id="w">
-    <div id="content">
-      <nav id="stickynav">
-        <ul id="nav" class="clearfix">
-          <li><a href="#topbar">Home</a></li>
-          <li><a href="#modele">Modele</a></li>
-          <li><a href="#foto">Fotografii</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <h1>The World of Audi</h1>
-      
-      <p>Click on the navigation items for a basic sliding effect.</p>
-      
-     
-      
-      <br><br>
-      
-      <section id="modele" class="section">
-      <h2>Modele</h2>
-      
-      <p>I'll be in the hospital bar. You know there isn't a hospital bar, Mother. Well, this is why people hate hospitals. Friday night. It just seems like there's still light coming in from under the door. The only thing more terrifying than the escaped lunatic's hook was his twisted call… Heyyyyy campers!</p>
-      
-      <p>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly away from your feelings?</p>
-      
-      <p>In the mid '90s, Tobias formed a folk music band with Lindsay and Maebe which he called Dr. Funke's 100 Percent Natural Good Time Family Band Solution. The group was underwritten by the Natural Food Life Company, a division of Chem-Grow, an Allen Crayne acqusition, which was part of the Squimm Group. Their motto was simple: We keep you alive.</p>
-      
-      <p>Please refrain from Mayoneggs during this salmonella scare. A Colombian cartel that WON'T kidnap and kill you. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert?</p>
-      
-      <p>OH MY GOD, WE'RE HAVING A FIRE… sale. Oh, the burning! ♪♪ Amaaaaaaziiiing Graaaace ♪♪</p>     
-      </section>
-      
-      
-      
-      <section id="foto" class="section">
-      <h2>Fotografii</h2>
-      
-      
-      <p>Source: <a href="http://www.flickr.com/photos/bunnicula/8769762365/">http://www.flickr.com/photos/bunnicula/8769762365/</a></p>
-      <img src="img/bluth-frozen-banana.jpg" alt="Bluths Frozen Bananas">
-      
-      <br><br>
-      
-      <p>Source: <a href="http://www.flickr.com/photos/bunnicula/8774851072/">http://www.flickr.com/photos/bunnicula/8774851072/</a></p>
-      <img src="img/cash-only.jpg" alt="Cash Only">
-      <br><br>
-      
-      <p>Source: <a href="http://www.flickr.com/photos/aphrodite-in-nyc/6205273331/">http://www.flickr.com/photos/aphrodite-in-nyc/6205273331/</a></p>
-      <img src="img/arrested-cast-chicken-dance.jpg" alt="Arrested Development cast chicken dance">
-      </section>
-      
-      <section id="contact" class="section">
-      <h2>Contact</h2>
-      
-      <p>Not much else to say here. Why not get in touch!</p>
-      
-      <form method="post" action="#">
-        <input type="text" class="basic" placeholder="Name...">
-        
-        <input type="text" class="basic" placeholder="E-mail...">
-        
-        <textarea class="basictxt"></textarea>
-      </form>
-      <br><br><br>
-      </section>
-      </div>
-           <br><br><br><br><br><br> 
-    </div><!-- @end #content -->
-  </div><!-- @end #w -->
-<script type="text/javascript">
-$(function(){
-  $("#nav a").click(function(e){
-    e.preventDefault();
-    $('html,body').scrollTo(this.hash,this.hash); 
-  });
-});
-</script>
+<!-- Vendor: Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+
+<!-- Our Website Javascripts -->
+<script src="js/main.js"></script>
+
 </body>
 </html>

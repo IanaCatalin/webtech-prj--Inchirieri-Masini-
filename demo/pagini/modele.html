@@ -1,0 +1,44 @@
+<div class="container">
+ <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Modele
+                
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a>
+                </li>
+                <li class="active">Modele</li>
+            </ol>
+        </div>
+
+    </div>
+ <div class="col-lg-12">
+<table class="table">
+			<thead>
+				<th>
+					Denumire
+				</th>
+				<th>
+					An_aparitie
+				</th>
+					<th>
+				    Motorizare
+				</th>
+				<th>
+				    Pret
+				</th>
+			
+			</thead>
+			<tr ng-repeat="modele in Modele">
+			
+					<td>{{modele.Denumire}}</td>
+					<td>{{modele.An_aparitie}}</td>
+					<td>{{modele.Motorizare}}</td>
+					<td>{{modele.Pret}}</td>
+
+			
+		    </tr>
+</table>
+</div>
+</div>
